@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Đặng Bảo Khang — Fullstack Developer</title>
+    <meta name="description"
+        content="Portfolio — Fullstack Developer (Java Spring Boot, Angular 19–20, Kafka, Redis, MySQL)" />
+    <style>
+        :root {
+            --bg: #0b1220;
+            --card: #0f1a2f;
+            --muted: #95a3b8;
+            --text: #e8eef8;
+            --accent: #4aa3ff;
+            --line: rgba(255, 255, 255, .08);
+            --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+            --radius: 18px;
+            --max: 1080px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+            background:
+                radial-gradient(1200px 800px at 15% -10%, rgba(74, 163, 255, .18), transparent 60%),
+                radial-gradient(900px 600px at 90% 10%, rgba(124, 92, 255, .12), transparent 60%),
+                var(--bg);
+            color: var(--text);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        .wrap {
+            max-width: var(--max);
+            margin: 0 auto;
+            padding: 24px
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            background: linear-gradient(to bottom, rgba(11, 18, 32, .85), rgba(11, 18, 32, .55));
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 99px;
+            background: var(--accent);
+            box-shadow: 0 0 0 6px rgba(74, 163, 255, .14);
+        }
+
+        .brand b {
+            letter-spacing: .3px
+        }
+
+        .menu {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: flex-end
+        }
+
+        .menu a {
+            color: var(--muted);
+            padding: 10px 12px;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            transition: .2s ease;
+            font-size: 14px;
+        }
+
+        .menu a:hover {
+            color: var(--text);
+            border-color: var(--line);
+            background: rgba(255, 255, 255, .03)
+        }
+
+        .menu a.active {
+            color: var(--text);
+            border-color: rgba(74, 163, 255, .35);
+            background: rgba(74, 163, 255, .08)
+        }
+
+        .hero {
+            padding: 46px 0 22px;
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 22px;
+            align-items: stretch;
+        }
+
+        @media (max-width:900px) {
+            .hero {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(255, 255, 255, .02));
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .card-pad {
+            padding: 22px
+        }
+
+        .h1 {
+            font-size: 40px;
+            line-height: 1.08;
+            margin: 0 0 10px
+        }
+
+        .sub {
+            color: var(--muted);
+            margin: 0 0 16px;
+            font-size: 16px;
+            line-height: 1.6
+        }
+
+        .pillrow {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px
+        }
+
+        .pill {
+            font-size: 13px;
+            color: rgba(232, 238, 248, .92);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .03);
+            padding: 8px 10px;
+            border-radius: 999px;
+        }
+
+        .cta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 18px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 14px;
+            border-radius: 14px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .03);
+            color: var(--text);
+            transition: .2s ease;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            background: rgba(255, 255, 255, .05)
+        }
+
+        .btn.primary {
+            border-color: rgba(74, 163, 255, .45);
+            background: rgba(74, 163, 255, .12);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .span-12 {
+            grid-column: span 12
+        }
+
+        .span-8 {
+            grid-column: span 8
+        }
+
+        .span-6 {
+            grid-column: span 6
+        }
+
+        .span-4 {
+            grid-column: span 4
+        }
+
+        @media (max-width:900px) {
+
+            .span-8,
+            .span-6,
+            .span-4 {
+                grid-column: span 12
+            }
+        }
+
+        .section {
+            padding: 22px 0
+        }
+
+        .title {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 0 0 10px;
+        }
+
+        .title h2 {
+            margin: 0;
+            font-size: 22px;
+            letter-spacing: .2px
+        }
+
+        .title .hint {
+            color: var(--muted);
+            font-size: 13px
+        }
+
+        .muted {
+            color: var(--muted)
+        }
+
+        .list {
+            margin: 10px 0 0;
+            padding-left: 18px;
+            color: rgba(232, 238, 248, .92)
+        }
+
+        .list li {
+            margin: 8px 0;
+            line-height: 1.55
+        }
+
+        .kvs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px
+        }
+
+        @media (max-width:900px) {
+            .kvs {
+                grid-template-columns: 1fr
+            }
+        }
+
+        .kv {
+            padding: 14px 14px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, .02);
+        }
+
+        .kv b {
+            display: block;
+            margin-bottom: 4px
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: var(--muted)
+        }
+
+        .proj {
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, .02);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .proj h3 {
+            margin: 0;
+            font-size: 16px
+        }
+
+        .proj .meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .proj .meta span {
+            border: 1px solid var(--line);
+            padding: 6px 8px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .02);
+        }
+
+        .proj p {
+            margin: 0;
+            color: rgba(232, 238, 248, .92);
+            line-height: 1.55
+        }
+
+        .proj .links {
+            margin-top: auto;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .small {
+            font-size: 13px
+        }
+
+        footer {
+            padding: 28px 0 40px;
+            border-top: 1px solid var(--line);
+            margin-top: 18px;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .badge {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 8px 10px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, .02);
+            color: rgba(232, 238, 248, .92);
+            font-size: 13px;
+        }
+
+        .split {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="nav">
+        <div class="wrap nav-inner">
+            <div class="brand">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                    <b>Đặng Bảo Khang</b>
+                    <div class="tagline">Fullstack Developer • Java / Spring Boot • Angular 19–20</div>
+                </div>
+            </div>
+            <nav class="menu" id="menu">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <!-- HERO -->
+        <section class="hero" id="top">
+            <div class="card">
+                <div class="card-pad">
+                    <h1 class="h1">Fullstack Developer</h1>
+                    <p class="sub">
+                        Nearly 2 years of experience building and modernizing production web systems using
+                        <b>Java Spring Boot</b> and <b>Angular (19–20)</b>. Experienced in real-time data processing,
+                        legacy system migration, and admin platform development.
+                    </p>
+
+                    <div class="pillrow">
+                        <span class="pill">Java • Spring Boot 3.4</span>
+                        <span class="pill">AngularJS → Angular 19</span>
+                        <span class="pill">Angular 20 Admin</span>
+                        <span class="pill">Kafka • Redis • MySQL</span>
+                        <span class="pill">TCP/IP • IoT</span>
+                    </div>
+
+                    <div class="cta">
+                        <!-- TODO: Replace with your CV PDF file name if you upload it -->
+                        <a class="btn primary" href="#contact">Contact</a>
+                        <a class="btn" href="#"
+                            onclick="alert('Tip: upload your CV PDF to this repo and update this link.'); return false;">Download
+                            CV (PDF)</a>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="card">
+                <div class="card-pad">
+                    <div class="title">
+                        <h2>Quick Info</h2>
+                        <span class="hint">Ho Chi Minh City</span>
+                    </div>
+                    <div class="kvs">
+                        <div class="kv">
+                            <b>Current</b>
+                            <div class="muted">Fullstack Developer @ A.D.A Co., Ltd.</div>
+                            <div class="muted small">(Brand: Magiwan)</div>
+                        </div>
+                        <div class="kv">
+                            <b>Focus</b>
+                            <div class="muted">Admin platforms, migrations, real-time data</div>
+                        </div>
+                        <div class="kv">
+                            <b>English</b>
+                            <div class="muted">Good communication (B1 Certificate)</div>
+                        </div>
+                        <div class="kv">
+                            <b>Availability</b>
+                            <div class="muted">Open to new opportunities</div>
+                        </div>
+                    </div>
+
+                    <!-- <div style="margin-top:14px" class="split">
+                        <span class="badge">✅ 1-page CV ready</span>
+                        <span class="badge">✅ Mid-level signal</span>
+                    </div> -->
+                </div>
+            </aside>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="title">
+                <h2>About</h2>
+                <span class="hint">Short & focused</span>
+            </div>
+            <div class="card">
+                <div class="card-pad">
+                    <p class="sub" style="margin:0">
+                        I’m a Fullstack Developer specializing in <b>Java/Spring Boot</b> and <b>Angular</b>.
+                        I enjoy building reliable admin systems, modernizing legacy codebases (AngularJS → Angular),
+                        and designing clean data flows for real-time systems.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section" id="skills">
+            <div class="title">
+                <h2>Skills</h2>
+                <span class="hint">Core first, then extras</span>
+            </div>
+
+            <div class="grid">
+                <div class="span-6">
+                    <div class="proj">
+                        <h3>Backend</h3>
+                        <div class="meta">
+                            <span>Java</span><span>Spring Boot 3.4</span><span>MyBatis</span><span>REST API</span>
+                            <span>Kafka</span><span>Redis</span><span>TCP/IP</span>
+                        </div>
+                        <p class="small muted">Build APIs, integrate messaging/caching, optimize DB interactions.</p>
+                    </div>
+                </div>
+                <div class="span-6">
+                    <div class="proj">
+                        <h3>Frontend</h3>
+                        <div class="meta">
+                            <span>AngularJS</span><span>Angular 19</span><span>Angular 20</span><span>Bootstrap
+                                5</span><span>SCSS</span>
+                        </div>
+                        <p class="small muted">Admin dashboards, migration/refactor, responsive UI.</p>
+                    </div>
+                </div>
+                <div class="span-12">
+                    <div class="proj">
+                        <h3>Other</h3>
+                        <div class="meta">
+                            <span>MySQL</span><span>PHP (basic)</span><span>ReactJS (basic)</span><span>Figma</span>
+                        </div>
+                        <p class="small muted">Use Figma to design admin flows/layouts before implementation when
+                            needed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section class="section" id="projects">
+            <div class="title">
+                <h2>Projects</h2>
+                <span class="hint">Most relevant first</span>
+            </div>
+
+            <div class="grid">
+                <div class="span-4">
+                    <div class="proj">
+                        <h3>Installation Marketplace — Admin System</h3>
+                        <div class="meta">
+                            <span>Angular 20</span><span>Spring Boot
+                                3.4</span><span>MyBatis</span><span>Kafka</span><span>Redis</span><span>MySQL</span>
+                        </div>
+                        <p>
+                            Built and maintained the <b>admin system</b> of a multi-platform marketplace.
+                            Designed admin UI flows in <b>Figma</b> before coding. Delivered REST APIs and optimized DB
+                            interactions.
+                        </p>
+                        <ul class="list small">
+                            <li>Admin dashboard for operations & management</li>
+                            <li>RESTful APIs + MyBatis + query optimization</li>
+                            <li>Integrated Kafka/Redis where applicable</li>
+                        </ul>
+                        <div class="links">
+                            <a class="btn" href="#"
+                                onclick="alert('Optional: add demo link. If login required, provide demo credentials or “available upon request”.'); return false;">Demo</a>
+                            <a class="btn" href="#"
+                                onclick="alert('Optional: add repo link if public.'); return false;">Repo</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span-4">
+                    <div class="proj">
+                        <h3>AngularJS → Angular 19 Migration</h3>
+                        <div class="meta">
+                            <span>AngularJS</span><span>Angular 19</span><span>Refactor</span>
+                        </div>
+                        <p>
+                            Migrated a legacy AngularJS codebase to <b>Angular 19</b>, refactoring core modules
+                            to improve maintainability and performance.
+                        </p>
+                        <ul class="list small">
+                            <li>Core modules, routing, services refactor</li>
+                            <li>Improved stability & maintainability</li>
+                            <li>Minimized disruption during migration</li>
+                        </ul>
+                        <div class="links">
+                            <a class="btn" href="#"
+                                onclick="alert('Optional: add before/after notes or migration highlights.'); return false;">Highlights</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="span-4">
+                    <div class="proj">
+                        <h3>IoT Temperature Monitoring</h3>
+                        <div class="meta">
+                            <span>Java</span><span>TCP/IP</span><span>MySQL</span><span>PHP</span><span>AngularJS</span>
+                        </div>
+                        <p>
+                            Developed a <b>Java TCP server</b> to receive and process real-time temperature data from
+                            IoT devices,
+                            store data in MySQL, and visualize on a web dashboard.
+                        </p>
+                        <ul class="list small">
+                            <li>Real-time device data ingestion via TCP</li>
+                            <li>Persist & process sensor data in MySQL</li>
+                            <li>PHP APIs + AngularJS monitoring UI</li>
+                        </ul>
+                        <div class="links">
+                            <a class="btn" href="#"
+                                onclick="alert('Optional: add architecture diagram screenshot link.'); return false;">Architecture</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="section" id="experience">
+            <div class="title">
+                <h2>Experience</h2>
+                <span class="hint">2024 – 2026 (~2 years)</span>
+            </div>
+            <div class="card">
+                <div class="card-pad">
+                    <div class="split">
+                        <div>
+                            <b>A.D.A Co., Ltd. (Brand: Magiwan)</b>
+                            <div class="muted small">Fullstack Developer</div>
+                        </div>
+                        <span class="badge">Ho Chi Minh City</span>
+                    </div>
+                    <ul class="list">
+                        <li>Developed and maintained fullstack web applications using <b>Java Spring Boot</b> and
+                            <b>Angular</b>.
+                        </li>
+                        <li>Designed, implemented, and optimized backend and frontend features for production systems.
+                        </li>
+                        <li>Collaborated with cross-functional teams to deliver features on schedule.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="section" id="contact">
+            <div class="title">
+                <h2>Contact</h2>
+                <span class="hint">Let’s connect</span>
+            </div>
+
+            <div class="grid">
+                <div class="span-12">
+                    <div class="card">
+                        <div class="card-pad">
+                            <p class="sub" style="margin-top:0">
+                                Interested in working together? Feel free to reach out.
+                            </p>
+                            <div class="kvs">
+                                <div class="kv">
+                                    <b>Email</b>
+                                    <div class="muted"><a
+                                            href="mailto:baokhangdang712@gmail.com">baokhangdang712@gmail.com</a></div>
+                                </div>
+                                <div class="kv">
+                                    <b>Location</b>
+                                    <div class="muted">Ho Chi Minh City</div>
+                                </div>
+                                <div class="kv">
+                                    <b>GitHub</b>
+                                    <div class="muted">
+                                        <!-- TODO: Replace with your GitHub -->
+                                        <a target="_blank"
+                                            href="https://github.com/snowgrub123">https://github.com/snowgrub123</a>
+                                    </div>
+                                </div>
+                                <div class="kv">
+                                    <b>LinkedIn</b>
+                                    <div class="muted">
+                                        <!-- TODO: Replace with your LinkedIn -->
+                                        <a href="#"
+                                            onclick="alert('Replace with your LinkedIn profile link'); return false;">Add
+                                            your LinkedIn link</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cta">
+                                <a class="btn primary" href="mailto:baokhangdang712@gmail.com">Email me</a>
+                                <a class="btn" href="#"
+                                    onclick="navigator.clipboard.writeText('baokhangdang712@gmail.com'); alert('Copied email!'); return false;">Copy
+                                    email</a>
+                            </div>
+
+                            <p class="small muted" style="margin:14px 0 0">
+                                Note: If a project demo requires login, demo credentials can be provided upon request.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="split">
+                <span>© <span id="year"></span> Đặng Bảo Khang</span>
+                <span>Built with HTML/CSS • Hosted on GitHub Pages</span>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Active menu on scroll (tiny JS, no framework)
+        const sections = ["about", "skills", "projects", "experience", "contact"].map(id => document.getElementById(id));
+        const menuLinks = Array.from(document.querySelectorAll("#menu a"));
+
+        function setActive() {
+            const y = window.scrollY + 120;
+            let current = "about";
+            for (const s of sections) {
+                if (s && s.offsetTop <= y) current = s.id;
+            }
+            menuLinks.forEach(a => {
+                const hash = (a.getAttribute("href") || "").replace("#", "");
+                a.classList.toggle("active", hash === current);
+            });
+        }
+        window.addEventListener("scroll", setActive, { passive: true });
+        setActive();
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
