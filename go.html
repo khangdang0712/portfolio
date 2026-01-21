@@ -3,25 +3,58 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Opening portfolio…</title>
+    <title>Open Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+            padding: 24px;
+            line-height: 1.5;
+        }
+
+        .box {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            text-decoration: none;
+            font-weight: 600
+        }
+
+        .primary {
+            border-color: #4aa3ff;
+            background: #e9f3ff
+        }
+
+        .muted {
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px
+        }
+    </style>
 </head>
 
 <body>
-    <p>
-        Opening portfolio…
-        If nothing happens, <a href="./" target="_blank">click here</a>.
-    </p>
+    <div class="box">
+        <h2>Open my portfolio</h2>
 
-    <script>
-        // Try opening portfolio in a new tab
-        window.open("./", "_blank");
+        <!-- CÁI NÀY sẽ mở tab mới chắc chắn -->
+        <p>
+            <a class="btn primary" href="./" target="_blank" rel="noopener">
+                Open in new tab
+            </a>
+            <a class="btn" href="./">Open here</a>
+        </p>
 
-        // Fallback: redirect current tab after a short delay
-        setTimeout(() => {
-            window.location.href = "./";
-        }, 200);
-    </script>
+        <p class="muted">
+            Note: Some CV/PDF viewers may block auto-opening new tabs. Please click “Open in new tab”.
+        </p>
+    </div>
 </body>
 
 </html>
