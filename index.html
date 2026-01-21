@@ -19,39 +19,52 @@
                 <span class="dot" aria-hidden="true"></span>
                 <div>
                     <b>Đặng Bảo Khang</b>
-                    <div class="tagline">Fullstack Developer • Java / Spring Boot • AngularJS ,Angular 19–20</div>
+                    <div class="tagline" data-i18n="brand.tagline">Fullstack Developer</div>
                 </div>
             </div>
+
             <nav class="menu" id="menu">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#introduction">Self-Introduction</a>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#contact">Contact</a>
+                <a href="#about" data-i18n="nav.about">About</a>
+                <a href="#introduction" data-i18n="nav.introduction">Self-Introduction</a>
+                <a href="#skills" data-i18n="nav.skills">Skills</a>
+                <a href="#projects" data-i18n="nav.projects">Projects</a>
+                <a href="#experience" data-i18n="nav.experience">Experience</a>
+                <a href="#contact" data-i18n="nav.contact">Contact</a>
+
+                <!-- Modern language toggle -->
+                <button class="lang-toggle" id="langToggle" type="button" aria-label="Toggle language">
+                    <span class="lang-option" data-lang="en">EN</span>
+                    <span class="lang-option" data-lang="vi">VI</span>
+                    <span class="lang-thumb" aria-hidden="true"></span>
+                </button>
             </nav>
         </div>
     </header>
 
     <main class="wrap">
         <!-- HERO -->
+        <div class="cta" style="margin-top: 16px;">
+            <a class="btn" href="./CV-DangBaoKhang.pdf" target="_blank" rel="noopener" data-i18n="hero.viewCv">
+                View CV (PDF)
+            </a>
+            <a class="btn" href="#" onclick="history.back(); return false;" data-i18n="hero.backToCv">
+                Back to CV
+            </a>
+        </div>
+
         <section class="hero" id="top">
             <div class="card">
-                <a class="btn" href="./CV-DangBaoKhang.pdf" target="_blank" rel="noopener">
-                    View CV (PDF)
-                </a>
-                <a class="btn" href="#" onclick="history.back(); return false;">
-                    Back
-                </a>
                 <div class="card-pad">
-                    <h1 class="h1">Fullstack Developer</h1>
-                    <p class="sub">
+                    <h1 class="h1" data-i18n="hero.title">Fullstack Developer</h1>
+
+                    <p class="sub" data-i18n="hero.summary">
                         Nearly 2 years of experience building and modernizing production web systems using
-                        <b>Java Spring Boot</b> and <b>Angular (19–20)</b>. Experienced in real-time data processing,
+                        Java Spring Boot and Angular (19–20). Experienced in real-time data processing,
                         legacy system migration, and admin platform development.
                     </p>
 
                     <div class="pillrow">
+                        <!-- tech pills can stay as-is -->
                         <span class="pill">Java • Spring Boot 3.4</span>
                         <span class="pill">AngularJS → Angular 19</span>
                         <span class="pill">Angular 20 Admin</span>
@@ -60,10 +73,8 @@
                     </div>
 
                     <div class="cta">
-                        <a class="btn primary" href="#contact">Contact</a>
-
-                        <!-- Update this link after you upload your PDF to the repo -->
-                        <a class="btn" href="./CV-DangBaoKhang.pdf" download>
+                        <a class="btn primary" href="#contact" data-i18n="hero.contactBtn">Contact</a>
+                        <a class="btn" href="./CV-DangBaoKhang.pdf" download data-i18n="hero.downloadCv">
                             Download CV (PDF)
                         </a>
                     </div>
@@ -73,26 +84,32 @@
             <aside class="card">
                 <div class="card-pad">
                     <div class="title">
-                        <h2>Quick Info</h2>
-                        <span class="hint">Ho Chi Minh City</span>
+                        <h2 data-i18n="quick.title">Quick Info</h2>
+                        <span class="hint" data-i18n="quick.location">Ho Chi Minh City</span>
                     </div>
+
                     <div class="kvs">
                         <div class="kv">
-                            <b>Current</b>
-                            <div class="muted">Fullstack Developer @ A.D.A Co., Ltd.</div>
-                            <div class="muted small">(Brand: Magiwan)</div>
+                            <b data-i18n="quick.current.label">Current</b>
+                            <div class="muted" data-i18n="quick.current.value">Fullstack Developer @ A.D.A Co., Ltd.
+                            </div>
+                            <div class="muted small" data-i18n="quick.current.brand">(Brand: Magiwan)</div>
                         </div>
+
                         <div class="kv">
-                            <b>Focus</b>
-                            <div class="muted">Admin platforms, migrations, real-time data</div>
+                            <b data-i18n="quick.focus.label">Focus</b>
+                            <div class="muted" data-i18n="quick.focus.value">Admin platforms, migrations, real-time data
+                            </div>
                         </div>
+
                         <div class="kv">
-                            <b>English</b>
-                            <div class="muted">Good communication (B2 Certificate)</div>
+                            <b data-i18n="quick.english.label">English</b>
+                            <div class="muted" data-i18n="quick.english.value">Good communication (B2 Certificate)</div>
                         </div>
+
                         <div class="kv">
-                            <b>Availability</b>
-                            <div class="muted">Open to new opportunities</div>
+                            <b data-i18n="quick.availability.label">Availability</b>
+                            <div class="muted" data-i18n="quick.availability.value">Open to new opportunities</div>
                         </div>
                     </div>
                 </div>
@@ -102,13 +119,13 @@
         <!-- SELF INTRODUCTION -->
         <section class="section" id="introduction">
             <div class="title">
-                <h2>Short Self-Introduction (60s)</h2>
-                <span class="hint">Video</span>
+                <h2 data-i18n="intro.title">Short Self-Introduction (60s)</h2>
+                <span class="hint" data-i18n="intro.hint">Video</span>
             </div>
 
             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">
-                <iframe src="https://www.youtube.com/embed/6a6Ebe2D0io?si=_Gdf7lvYDKbt0wSo" title="Self Introduction"
-                    frameborder="0"
+                <iframe id="introVideo" data-i18n-src="intro.videoId" src="https://www.youtube.com/embed/6a6Ebe2D0io"
+                    title="Self Introduction" frameborder="0"
                     allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
                     style="position:absolute; top:0; left:0; width:100%; height:100%;">
@@ -119,13 +136,14 @@
         <!-- ABOUT -->
         <section class="section" id="about">
             <div class="title">
-                <h2>About</h2>
-                <span class="hint">Short & focused</span>
+                <h2 data-i18n="about.title">About</h2>
+                <span class="hint" data-i18n="about.hint">Short & focused</span>
             </div>
+
             <div class="card">
                 <div class="card-pad">
-                    <p class="sub" style="margin:0">
-                        I’m a Fullstack Developer specializing in <b>Java/Spring Boot</b> and <b>Angular</b>.
+                    <p class="sub" style="margin:0" data-i18n="about.body">
+                        I’m a Fullstack Developer specializing in Java/Spring Boot and Angular.
                         I enjoy building reliable admin systems, modernizing legacy codebases (AngularJS → Angular),
                         and designing clean data flows for real-time systems.
                     </p>
@@ -136,41 +154,46 @@
         <!-- SKILLS -->
         <section class="section" id="skills">
             <div class="title">
-                <h2>Skills</h2>
-                <span class="hint">Core first, then extras</span>
+                <h2 data-i18n="skills.title">Skills</h2>
+                <span class="hint" data-i18n="skills.hint">Core first, then extras</span>
             </div>
 
             <div class="grid">
                 <div class="span-6">
                     <div class="proj">
-                        <h3>Backend</h3>
+                        <h3 data-i18n="skills.backend.title">Backend</h3>
                         <div class="meta">
                             <span>Java</span><span>Spring Boot 3.4</span><span>MyBatis</span><span>REST API</span>
                             <span>Kafka</span><span>Redis</span><span>TCP/IP</span>
                         </div>
-                        <p class="small muted">Build APIs, integrate messaging/caching, optimize DB interactions.</p>
+                        <p class="small muted" data-i18n="skills.backend.desc">
+                            Build APIs, integrate messaging/caching, optimize DB interactions.
+                        </p>
                     </div>
                 </div>
 
                 <div class="span-6">
                     <div class="proj">
-                        <h3>Frontend</h3>
+                        <h3 data-i18n="skills.frontend.title">Frontend</h3>
                         <div class="meta">
                             <span>AngularJS</span><span>Angular 19</span><span>Angular 20</span><span>Bootstrap
                                 5</span><span>SCSS</span>
                         </div>
-                        <p class="small muted">Admin dashboards, migration/refactor, responsive UI.</p>
+                        <p class="small muted" data-i18n="skills.frontend.desc">
+                            Admin dashboards, migration/refactor, responsive UI.
+                        </p>
                     </div>
                 </div>
 
                 <div class="span-12">
                     <div class="proj">
-                        <h3>Other</h3>
+                        <h3 data-i18n="skills.other.title">Other</h3>
                         <div class="meta">
                             <span>MySQL</span><span>PHP (basic)</span><span>ReactJS (basic)</span><span>Figma</span>
                         </div>
-                        <p class="small muted">Use Figma to design admin flows/layouts before implementation when
-                            needed.</p>
+                        <p class="small muted" data-i18n="skills.other.desc">
+                            Use Figma to design admin flows/layouts before implementation when needed.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -179,63 +202,64 @@
         <!-- PROJECTS -->
         <section class="section" id="projects">
             <div class="title">
-                <h2>Projects</h2>
-                <span class="hint">Most relevant first</span>
+                <h2 data-i18n="projects.title">Projects</h2>
+                <span class="hint" data-i18n="projects.hint">Most relevant first</span>
             </div>
 
             <div class="grid">
                 <div class="span-4">
                     <div class="proj">
-                        <h3>Installation Marketplace — Admin System</h3>
+                        <h3 data-i18n="projects.p1.title">Installation Marketplace — Admin System</h3>
                         <div class="meta">
                             <span>Angular 20</span><span>Spring Boot
                                 3.4</span><span>MyBatis</span><span>Kafka</span><span>Redis</span><span>MySQL</span>
                         </div>
-                        <p>
-                            Built and maintained the <b>admin system</b> of a multi-platform marketplace.
-                            Designed admin UI flows in <b>Figma</b> before coding. Delivered REST APIs and optimized DB
+                        <p data-i18n="projects.p1.desc">
+                            Built and maintained the admin system of a multi-platform marketplace.
+                            Designed admin UI flows in Figma before coding. Delivered REST APIs and optimized DB
                             interactions.
                         </p>
                         <ul class="list small">
-                            <li>Admin dashboard for operations & management</li>
-                            <li>RESTful APIs + MyBatis + query optimization</li>
-                            <li>Integrated Kafka/Redis where applicable</li>
+                            <li data-i18n="projects.p1.b1">Admin dashboard for operations & management</li>
+                            <li data-i18n="projects.p1.b2">RESTful APIs + MyBatis + query optimization</li>
+                            <li data-i18n="projects.p1.b3">Integrated Kafka/Redis where applicable</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="span-4">
                     <div class="proj">
-                        <h3>AngularJS → Angular 19 Migration</h3>
+                        <h3 data-i18n="projects.p2.title">AngularJS → Angular 19 Migration</h3>
                         <div class="meta">
                             <span>AngularJS</span><span>Angular 19</span><span>Refactor</span>
                         </div>
-                        <p>
-                            Migrated a legacy AngularJS codebase to <b>Angular 19</b>, refactoring core modules
+                        <p data-i18n="projects.p2.desc">
+                            Migrated a legacy AngularJS codebase to Angular 19, refactoring core modules
                             to improve maintainability and performance.
                         </p>
                         <ul class="list small">
-                            <li>Core modules, routing, services refactor</li>
-                            <li>Improved stability & maintainability</li>
-                            <li>Minimized disruption during migration</li>
+                            <li data-i18n="projects.p2.b1">Core modules, routing, services refactor</li>
+                            <li data-i18n="projects.p2.b2">Improved stability & maintainability</li>
+                            <li data-i18n="projects.p2.b3">Minimized disruption during migration</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="span-4">
                     <div class="proj">
-                        <h3>IoT Temperature Monitoring</h3>
+                        <h3 data-i18n="projects.p3.title">IoT Temperature Monitoring</h3>
                         <div class="meta">
                             <span>Java</span><span>TCP/IP</span><span>MySQL</span><span>PHP</span><span>AngularJS</span>
                         </div>
-                        <p>
-                            Developed a <b>Java TCP server</b> to receive and process real-time temperature data from
-                            IoT devices, store data in MySQL, and visualize on a web dashboard.
+                        <p data-i18n="projects.p3.desc">
+                            Developed a Java TCP server to receive and process real-time temperature data from IoT
+                            devices,
+                            store data in MySQL, and visualize on a web dashboard.
                         </p>
                         <ul class="list small">
-                            <li>Real-time device data ingestion via TCP</li>
-                            <li>Persist & process sensor data in MySQL</li>
-                            <li>PHP APIs + AngularJS monitoring UI</li>
+                            <li data-i18n="projects.p3.b1">Real-time device data ingestion via TCP</li>
+                            <li data-i18n="projects.p3.b2">Persist & process sensor data in MySQL</li>
+                            <li data-i18n="projects.p3.b3">PHP APIs + AngularJS monitoring UI</li>
                         </ul>
                     </div>
                 </div>
@@ -245,25 +269,30 @@
         <!-- EXPERIENCE -->
         <section class="section" id="experience">
             <div class="title">
-                <h2>Experience</h2>
-                <span class="hint">2024 – 2026 (~2 years)</span>
+                <h2 data-i18n="experience.title">Experience</h2>
+                <span class="hint" data-i18n="experience.hint">2024 – 2026 (~2 years)</span>
             </div>
+
             <div class="card">
                 <div class="card-pad">
                     <div class="split">
                         <div>
-                            <b>A.D.A Co., Ltd. (Brand: Magiwan)</b>
-                            <div class="muted small">Fullstack Developer</div>
+                            <b data-i18n="experience.company">A.D.A Co., Ltd. (Brand: Magiwan)</b>
+                            <div class="muted small" data-i18n="experience.role">Fullstack Developer</div>
                         </div>
-                        <span class="badge">Ho Chi Minh City</span>
+                        <span class="badge" data-i18n="experience.location">Ho Chi Minh City</span>
                     </div>
+
                     <ul class="list">
-                        <li>Developed and maintained fullstack web applications using <b>Java Spring Boot</b> and
-                            <b>Angular</b>.
+                        <li data-i18n="experience.b1">
+                            Developed and maintained fullstack web applications using Java Spring Boot and Angular.
                         </li>
-                        <li>Designed, implemented, and optimized backend and frontend features for production systems.
+                        <li data-i18n="experience.b2">
+                            Designed, implemented, and optimized backend and frontend features for production systems.
                         </li>
-                        <li>Collaborated with cross-functional teams to deliver features on schedule.</li>
+                        <li data-i18n="experience.b3">
+                            Collaborated with cross-functional teams to deliver features on schedule.
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -272,40 +301,46 @@
         <!-- CONTACT -->
         <section class="section" id="contact">
             <div class="title">
-                <h2>Contact</h2>
-                <span class="hint">Let’s connect</span>
+                <h2 data-i18n="contact.title">Contact</h2>
+                <span class="hint" data-i18n="contact.hint">Let’s connect</span>
             </div>
 
             <div class="grid">
                 <div class="span-12">
                     <div class="card">
                         <div class="card-pad">
-                            <p class="sub" style="margin-top:0">
+                            <p class="sub" style="margin-top:0" data-i18n="contact.body">
                                 Interested in working together? Feel free to reach out.
                             </p>
+
                             <div class="kvs">
                                 <div class="kv">
-                                    <b>Phone Number</b>
+                                    <b data-i18n="contact.phone">Phone Number</b>
                                     <div class="muted">0976206267</div>
                                 </div>
+
                                 <div class="kv">
-                                    <b>Email</b>
-                                    <div class="muted"><a
-                                            href="mailto:baokhangdang712@gmail.com">baokhangdang712@gmail.com</a></div>
+                                    <b data-i18n="contact.email">Email</b>
+                                    <div class="muted">
+                                        <a href="mailto:baokhangdang712@gmail.com">baokhangdang712@gmail.com</a>
+                                    </div>
                                 </div>
+
                                 <div class="kv">
-                                    <b>Location</b>
+                                    <b data-i18n="contact.location">Location</b>
                                     <div class="muted">Ho Chi Minh City</div>
                                 </div>
+
                                 <div class="kv">
-                                    <b>GitHub</b>
+                                    <b data-i18n="contact.github">GitHub</b>
                                     <div class="muted">
                                         <a target="_blank"
                                             href="https://github.com/khangdang0712">https://github.com/khangdang0712</a>
                                     </div>
                                 </div>
+
                                 <div class="kv">
-                                    <b>LinkedIn</b>
+                                    <b data-i18n="contact.linkedin">LinkedIn</b>
                                     <div class="muted">
                                         <a target="_blank"
                                             href="https://www.linkedin.com/in/khang-%C4%91%E1%BA%B7ng-935968332/">
@@ -316,14 +351,15 @@
                             </div>
 
                             <div class="cta">
-                                <a class="btn primary" href="mailto:baokhangdang712@gmail.com">Email me</a>
+                                <a class="btn primary" href="mailto:baokhangdang712@gmail.com"
+                                    data-i18n="contact.emailMe">Email me</a>
                                 <a class="btn" href="#"
-                                    onclick="navigator.clipboard.writeText('baokhangdang712@gmail.com'); alert('Copied!'); return false;">
+                                    onclick="navigator.clipboard.writeText('baokhangdang712@gmail.com'); alert('Copied!'); return false;"
+                                    data-i18n="contact.copyEmail">
                                     Copy email
                                 </a>
 
-                                <!-- Optional: another Download CV button here -->
-                                <a class="btn" href="./CV-DangBaoKhang.pdf" download>
+                                <a class="btn" href="./CV-DangBaoKhang.pdf" download data-i18n="contact.downloadCv">
                                     Download CV
                                 </a>
                             </div>
@@ -336,14 +372,72 @@
         <footer>
             <div class="split">
                 <span>© <span id="year"></span> Đặng Bảo Khang</span>
-                <span>Built with HTML/CSS • Hosted on GitHub Pages</span>
+                <span data-i18n="footer.right">Built with HTML/CSS • Hosted on GitHub Pages</span>
             </div>
         </footer>
     </main>
 
+    <!-- i18n loader -->
     <script>
-        // Active menu on scroll (tiny JS, no framework)
-        const sectionIds = ["about", "skills", "introduction", "projects", "experience", "contact"];
+        const DEFAULT_LANG = "en";
+        const SUPPORTED = ["en", "vi"];
+
+        let lang = localStorage.getItem("lang") || DEFAULT_LANG;
+        let dict = {};
+
+        async function loadLang(next) {
+            const l = SUPPORTED.includes(next) ? next : DEFAULT_LANG;
+            const res = await fetch(`./i18n/${l}.json`, { cache: "no-store" });
+            dict = await res.json();
+            lang = l;
+            localStorage.setItem("lang", lang);
+            applyI18n();
+            updateToggle();
+        }
+
+        function applyI18n() {
+            // 1) Text nodes
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                const val = dict[key];
+                if (val != null) el.textContent = val;
+            });
+
+            // 2) Attributes: iframe src (YouTube)
+            document.querySelectorAll("[data-i18n-src]").forEach(el => {
+                const key = el.getAttribute("data-i18n-src"); // e.g. intro.videoId
+                const videoId = dict[key];
+                if (!videoId) return;
+
+                const newSrc = `https://www.youtube.com/embed/${videoId}`;
+                if (el.getAttribute("src") !== newSrc) {
+                    el.setAttribute("src", newSrc);
+                }
+            });
+        }
+
+        function updateToggle() {
+            const btn = document.getElementById("langToggle");
+            if (!btn) return;
+            btn.setAttribute("data-lang", lang);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            loadLang(lang);
+
+            const btn = document.getElementById("langToggle");
+            if (btn) {
+                btn.addEventListener("click", () => {
+                    loadLang(lang === "en" ? "vi" : "en");
+                });
+            }
+        });
+    </script>
+
+    <!-- Active menu + year -->
+    <script>
+        // Active menu on scroll
+        const sectionIds = ["about", "introduction", "skills", "projects", "experience", "contact"];
         const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
         const menuLinks = Array.from(document.querySelectorAll("#menu a"));
 
@@ -363,6 +457,7 @@
 
         window.addEventListener("scroll", setActive, { passive: true });
         setActive();
+
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 </body>

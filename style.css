@@ -75,8 +75,9 @@ a {
 
 .menu {
     display: flex;
+    align-items: center;
     gap: 14px;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: flex-end;
 }
 
@@ -102,7 +103,7 @@ a {
 }
 
 .hero {
-    padding: 46px 0 22px;
+    padding: 20px 0 22px;
     display: grid;
     grid-template-columns: 1.2fr .8fr;
     gap: 22px;
@@ -360,4 +361,80 @@ footer {
     gap: 12px;
     flex-wrap: wrap;
     align-items: center;
+}
+
+/* Fix anchor jump being hidden under sticky header */
+:root {
+    --nav-offset: 96px;
+    /* chỉnh số này nếu header của bạn cao hơn/thấp hơn */
+}
+
+.section {
+    scroll-margin-top: var(--nav-offset);
+}
+
+/* Nếu hero/about... không có class section thì thêm luôn */
+#about,
+#introduction,
+#skills,
+#projects,
+#experience,
+#contact {
+    scroll-margin-top: var(--nav-offset);
+}
+
+/* Modern language toggle */
+.lang-toggle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0;
+    padding: 3px;
+    height: 34px;
+    min-width: 84px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, .03);
+    cursor: pointer;
+    /* ✅ bạn cần cái này */
+    user-select: none;
+}
+
+.lang-toggle:focus {
+    outline: 2px solid rgba(74, 163, 255, .35);
+    outline-offset: 2px;
+}
+
+.lang-toggle .lang-option {
+    position: relative;
+    z-index: 2;
+    width: 40px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .3px;
+    color: rgba(232, 238, 248, .75);
+}
+
+.lang-toggle .lang-thumb {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 40px;
+    height: 28px;
+    border-radius: 999px;
+    background: rgba(74, 163, 255, .14);
+    border: 1px solid rgba(74, 163, 255, .35);
+    transition: transform .18s ease;
+    z-index: 1;
+}
+
+/* State */
+.lang-toggle[data-lang="en"] .lang-option[data-lang="en"],
+.lang-toggle[data-lang="vi"] .lang-option[data-lang="vi"] {
+    color: rgba(232, 238, 248, .98);
+}
+
+.lang-toggle[data-lang="vi"] .lang-thumb {
+    transform: translateX(40px);
 }
