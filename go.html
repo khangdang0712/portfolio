@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Opening portfolio…</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <p>
+        Opening portfolio…
+        If nothing happens, <a href="./" target="_blank">click here</a>.
+    </p>
+
+    <script>
+        // Try opening portfolio in a new tab
+        window.open("./", "_blank");
+
+        // Fallback: redirect current tab after a short delay
+        setTimeout(() => {
+            window.location.href = "./";
+        }, 200);
+    </script>
+</body>
+
+</html>
